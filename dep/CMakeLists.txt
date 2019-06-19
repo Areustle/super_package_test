@@ -7,8 +7,8 @@ add_library(dep::dep ALIAS dep)
 
 include(GNUInstallDirs)
 set(CONFIG_INSTALLDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-install(TARGETS dep EXPORT ${PROJECT_NAME}Targets)
-install(EXPORT depTargets
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}Targets)
+install(EXPORT ${PROJECT_NAME}Targets
         NAMESPACE ${PROJECT_NAME}::
         DESTINATION ${CONFIG_INSTALLDIR})
 
@@ -32,4 +32,4 @@ export(EXPORT ${PROJECT_NAME}Targets
        FILE ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake
        NAMESPACE ${PROJECT_NAME}::)
 
-export(PACKAGE dep)
+export(PACKAGE ${PROJECT_NAME})
